@@ -1,0 +1,12 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 9000,
+    "read_timeout": 5,
+    "write_timeout": 5
+  },
+
+  "log": {
+    "verbose": true
+  }
+}
