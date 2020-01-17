@@ -32,3 +32,7 @@
 [[constraint]]
   branch = "master"
   name = "golang.org/x/lint"
+
+[[constraint]]
+  name = "github.com/spf13/viper"
+  version = "1.6.2"

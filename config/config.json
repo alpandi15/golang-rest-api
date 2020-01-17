@@ -1,4 +1,5 @@
 {
+  "appName": "Web Service Testing",
   "server": {
     "host": "localhost",
     "port": 9000,

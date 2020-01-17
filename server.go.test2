@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+	usercontroller "project1/controllers/user"
+
+	"github.com/labstack/echo"
+	"github.com/spf13/viper"
+)
+
+func main() {
+	r := echo.New()
+
+	viper.SetConfigType("json")
+	viper.AddConfigPath(".")
+	viper.SetConfigName("config/config")
+	err := viper.ReadInConfig()
+	if err != nil {
+		r.Logger.Fatal(err)
+	}
+	fmt.Println("Starting", viper.GetString("server.host"))
+
+	r.GET("/users", usercontroller.FindAll)
+	r.POST("/user", usercontroller.CreateUser)
+
+	r.Logger.Fatal(r.Start(":" + viper.GetString("server.port")))
+}

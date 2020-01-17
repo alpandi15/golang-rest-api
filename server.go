@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"project1/config"
+	usercontroller "project1/controllers/user"
 	"time"
 )
 
@@ -22,9 +23,7 @@ func (c CustomMux) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func main() {
 	router := new(CustomMux)
 
-	router.HandleFunc("/api/user", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World!"))
-	})
+	router.HandleFunc("/user", usercontroller.FindAll)
 
 	server := new(http.Server)
 	server.Handler = router
